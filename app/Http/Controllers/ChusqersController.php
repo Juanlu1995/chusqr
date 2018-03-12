@@ -176,7 +176,7 @@ class ChusqersController extends Controller
             return redirect('/');
         }
         $user->like()->attach($chusqer);
-        return redirect('/');
+        return redirect('/chusqers/'.$chusqer->id);
     }
 
     public function unlike(Chusqer $chusqer)
@@ -188,7 +188,7 @@ class ChusqersController extends Controller
         }
 
         $user->like()->detach($chusqer);
-        return redirect('/');
+        return redirect('/chusqers/'.$chusqer->id);
     }
 
     public function likes(Chusqer $chusqer)
