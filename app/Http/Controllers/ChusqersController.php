@@ -195,8 +195,7 @@ class ChusqersController extends Controller
     {
         if ($chusqer->like->count() > 0) {
             $users = $chusqer->like()->orderBy('pivot_created_at','desc')->get();
-            dd($users);
-            return view('chusqers.likes', ['chusqer' => $chusqer]);
+            return view('chusqers.likes', ['chusqer' => $chusqer, 'users' => $users]);
         } else {
             return redirect()->back();
         }
