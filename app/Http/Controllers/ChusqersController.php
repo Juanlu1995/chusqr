@@ -194,7 +194,7 @@ class ChusqersController extends Controller
     public function likes(Chusqer $chusqer)
     {
         if ($chusqer->like->count() > 0) {
-            $users = $chusqer->like;
+            $users = $chusqer->like()->orderBy('pivot_created_at','desc')->get();
             dd($users);
             return view('chusqers.likes', ['chusqer' => $chusqer]);
         } else {
