@@ -81,4 +81,8 @@ class User extends Authenticatable
         return Auth::user()->id == $this->id;
     }
 
+
+    public function like(){
+        return $this->belongsToMany(Chusqer::class, 'like_chusqers','user_id', 'chusqer_id')->withPivot('created_at');
+    }
 }

@@ -49,4 +49,8 @@ class Chusqer extends Model
         return $this->toArray();
     }
 
+    public function like(){
+        return $this->belongsToMany(User::class, 'like_chusqers', 'chusqer_id', 'user_id')->withPivot('created_at');
+    }
+
 }

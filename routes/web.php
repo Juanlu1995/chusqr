@@ -29,6 +29,9 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/chusqers/{chusqer}/edit', 'ChusqersController@edit')->name('chusqers.edit');
     Route::patch('/chusqers/{chusqer}', 'ChusqersController@patch')->name('chusqers.patch');
     Route::delete('/chusqers/{chusqer}', 'ChusqersController@destroy')->name('chusqers.delete');
+    Route::get('/chusqers/like/{chusqer}', 'ChusqersController@likes');
+    Route::post('/chusqers/like/{chusqer}', 'ChusqersController@like');
+    Route::delete('/chusqers/like/{chusqer}', 'ChusqersController@unlike');
     Route::get('/conversations/{conversation}', 'UsersController@showConversation')->name('conversation.show');
     Route::post('/{user}/follow', 'UsersController@follow');
     Route::post('/{user}/unfollow', 'UsersController@unfollow');
